@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { IoFastFood } from 'react-icons/io5';
 import { HiMenu } from 'react-icons/hi';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
-  const [user, setUser] = useState({
-    displayName: 'Ayesha Sultana',
-    photoURL: 'https://i.pravatar.cc/150?img=65',
-  });
-
+  const { user,setUser}= use(AuthContext);
   const handleLogout = () => {
     setUser(null);
     console.log('User logged out');
@@ -93,7 +90,7 @@ const Navbar = () => {
                 alt="user"
                 className="w-10 h-10 rounded-full border-2 border-amber-500 cursor-pointer"
               />
-              <div className="absolute right-0 mt-1 w-44 bg-white rounded shadow-lg p-3 text-sm text-gray-700 hidden group-hover:block z-10">
+              <div className="absolute right-0 mt-0 w-44 bg-white rounded shadow-lg p-3 text-sm text-gray-700 hidden group-hover:block z-10">
                 <p className="font-semibold mb-2">{user.displayName}</p>
                 <button
                   onClick={handleLogout}
