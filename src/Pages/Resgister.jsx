@@ -4,7 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Resgister = () => {
-    const {createUser,setUser, updateUser}= use(AuthContext)
+    const {createUser,setUser, updateUser,logInGoogle}= use(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
      const [error, setError] = useState('');
@@ -42,11 +42,27 @@ const Resgister = () => {
         toast.warn(errorCode,errorMessage)
     })
     
-
-
-
+     
 
     }
+    const handleGoogleLogin =()=>{
+             logInGoogle()
+             .then(result=>{
+            const user = result.user;
+    
+             toast.success("Log In Succesfully")
+             navigate(`${location.state? location.state: "/"}`)
+    
+           })
+          .catch(error=>{
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            toast.warn(errorCode,errorMessage)
+          })
+        }
+
+
+
     return (
         
              <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -112,7 +128,7 @@ const Resgister = () => {
 
         <div className="mt-6">
           <button
-            onClick={() => alert('Google Sign Up Logic')}
+            onClick={handleGoogleLogin}
             className="w-full bg-amber-500 text-white p-2 rounded hover:bg-red-600"
           >
             Continue with Google

@@ -4,7 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-    const {logIn}=use(AuthContext)
+    const {logIn,logInGoogle}=use(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
     console.log(location)
@@ -30,6 +30,22 @@ const Login = () => {
     })
 
 
+    }
+
+    const handleGoogleLogin =()=>{
+         logInGoogle()
+         .then(result=>{
+        const user = result.user;
+
+         toast.success("Log In Succesfully")
+         navigate(`${location.state? location.state: "/"}`)
+
+       })
+      .catch(error=>{
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast.warn(errorCode,errorMessage)
+      })
     }
     return (
          <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -75,7 +91,7 @@ const Login = () => {
         </div>
 
         <div className="mt-6">
-          <button
+          <button onClick={handleGoogleLogin}
             
             className="w-full bg-amber-500 text-white p-2 rounded hover:bg-red-600"
           >
