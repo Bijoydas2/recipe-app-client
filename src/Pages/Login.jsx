@@ -1,14 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { use } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
+    const {logIn}=use(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location)
+    const handleLogin = (e)=>{
+        
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password)
+        logIn(email,password)
+        .then(result=>{
+        const user = result.user;
+
+        toast.success("Log In Succesfully")
+        navigate(`${location.state? location.state: "/"}`)
+
+      })
+    .catch(error=>{
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast.warn(errorCode,errorMessage)
+    })
+
+
+    }
     return (
          <div className="min-h-screen flex items-center justify-center bg-gray-100">
     
       <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-        <form  className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <input
+            name='email'
             type="email"
             placeholder="Email"
             className="w-full border p-2 rounded"
@@ -16,6 +46,7 @@ const Login = () => {
             required
           />
           <input
+            name='password'
             type="password"
             placeholder="Password"
             className="w-full border p-2 rounded"

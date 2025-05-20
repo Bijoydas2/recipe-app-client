@@ -1,9 +1,12 @@
 import React, { use, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Resgister = () => {
-    const {createUser,setUser}= use(AuthContext)
+    const {createUser,setUser, updateUser}= use(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
      const [error, setError] = useState('');
     const handleRegister= (e)=>{
         e.preventDefault();
@@ -24,12 +27,19 @@ const Resgister = () => {
     createUser(email,password)
     .then(result=>{
         const user = result.user;
-        setUser(user)
-    })
+         updateUser({displayName:name, photoURL:photo})
+         .then(() => {
+         setUser({...user,displayName:name, photoURL:photo})
+       }).catch((error) => {
+         toast.warn(error)
+       });
+        toast.success("Account create Succesfully")
+        navigate(`${location.state? location.state: "/"}`)
+      })
     .catch(error=>{
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage)
+        toast.warn(errorCode,errorMessage)
     })
     
 

@@ -1,14 +1,21 @@
-import React, { use, useState } from 'react';
+import React, { use,  } from 'react';
 import { IoFastFood } from 'react-icons/io5';
 import { HiMenu } from 'react-icons/hi';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
-  const { user,setUser}= use(AuthContext);
+  const { user, logOut}= use(AuthContext);
   const handleLogout = () => {
-    setUser(null);
-    console.log('User logged out');
+    
+    
+    logOut()
+    .then(() => {
+     toast.success("Log Out successfully!");
+   }).catch((error) => {
+    console.log(error)
+   });
   };
 
   return (

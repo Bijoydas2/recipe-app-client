@@ -8,6 +8,11 @@ import AuthLayouts from '../MainLayout.jsx/AuthLayouts';
 import Login from '../Pages/Login';
 
 import Resgister from '../Pages/Resgister';
+import PrivateRoute from '../Provider/PrivateRoute';
+import Allrecipes from '../Pages/Allrecipes';
+import Addrecipes from '../Pages/Addrecipes';
+import Myrecipes from '../Pages/Myrecipes';
+import Loading from '../Pages/Loading';
 
 
 
@@ -15,13 +20,26 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component:Layout,
+   
     children:[
         {
             index:true,
             Component:Home
         },
         {
-
+          path:'/all-recipes',
+          Component:Allrecipes
+    
+        },
+        {
+          path:'/add-recipe',
+          element:<PrivateRoute><Addrecipes></Addrecipes></PrivateRoute>
+    
+        },
+        {
+          path:'/my-recipes',
+          element:<PrivateRoute><Myrecipes></Myrecipes></PrivateRoute>
+    
         },
 
 
