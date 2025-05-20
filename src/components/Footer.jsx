@@ -8,13 +8,13 @@ const Footer = () => {
 
         {/* Logo + Name */}
         <div>
-          <h2 className="text-2xl font-bold text-amber-400 mb-2">Recipe Book</h2>
+          <h2 className="text-2xl font-bold text-amber-500 mb-2">Recipe Book</h2>
           <p className="text-sm text-gray-400">Your everyday cooking companion. Cook with joy!</p>
         </div>
 
         {/* Contact Information */}
         <div>
-          <h3 className="text-lg font-semibold text-amber-400 mb-2">Contact Us</h3>
+          <h3 className="text-lg font-semibold text-amber-500 mb-2">Contact Us</h3>
           <p>Email: support@recipebook.com</p>
           <p>Phone: +880 1234-567890</p>
           <p>Address: Dhaka, Bangladesh</p>
@@ -22,16 +22,16 @@ const Footer = () => {
 
         {/* Social Media */}
         <div>
-          <h3 className="text-lg font-semibold text-amber-400 mb-2">Follow Us</h3>
+          <h3 className="text-lg font-semibold text-amber-500 mb-2">Follow Us</h3>
           <div className="flex justify-center md:justify-start gap-5 text-xl">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FaFacebookF className="hover:text-amber-400 transition duration-200" />
+              <FaFacebookF className="hover:text-amber-500 transition duration-200" />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <FaTwitter className="hover:text-amber-400 transition duration-200" />
+              <FaTwitter className="hover:text-amber-500 transition duration-200" />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <FaInstagram className="hover:text-amber-400 transition duration-200" />
+              <FaInstagram className="hover:text-amber-500 transition duration-200" />
             </a>
           </div>
         </div>

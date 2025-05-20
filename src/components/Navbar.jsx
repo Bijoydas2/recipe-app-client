@@ -93,7 +93,7 @@ const Navbar = () => {
                 alt="user"
                 className="w-10 h-10 rounded-full border-2 border-amber-500 cursor-pointer"
               />
-              <div className="absolute right-0 mt-2 w-44 bg-white rounded shadow-lg p-3 text-sm text-gray-700 hidden group-hover:block z-10">
+              <div className="absolute right-0 mt-1 w-44 bg-white rounded shadow-lg p-3 text-sm text-gray-700 hidden group-hover:block z-10">
                 <p className="font-semibold mb-2">{user.displayName}</p>
                 <button
                   onClick={handleLogout}
