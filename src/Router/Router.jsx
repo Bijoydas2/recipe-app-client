@@ -13,6 +13,7 @@ import Allrecipes from '../Pages/Allrecipes';
 import Addrecipes from '../Pages/Addrecipes';
 import Myrecipes from '../Pages/Myrecipes';
 import Loading from '../Pages/Loading';
+import RecipeDetails from '../Pages/RecipeDetails';
 
 
 
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
           element:<PrivateRoute><Myrecipes></Myrecipes></PrivateRoute>
     
         },
+        {
+          path:'/recipe-details/:id',
+          element:<PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>
+        }
 
 
     ]

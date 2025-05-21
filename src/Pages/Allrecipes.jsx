@@ -41,7 +41,7 @@ const Allrecipes = () => {
              
 
               <Link
-                to={`/recipe/${recipe._id}`}
+                to={`/recipe-details/${recipe._id}`}
                 className="mt-auto inline-block bg-amber-500 hover:bg-amber-600 text-white text-center py-2 rounded-md font-semibold"
               >
                 See Details
