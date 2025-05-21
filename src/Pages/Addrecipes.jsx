@@ -49,7 +49,7 @@ const AddRecipe = () => {
 
     console.log('Submitted Data:', newRecipe);
 
-    fetch('http://localhost:3000/recipes', {
+    fetch('https://recipe-book-app-server-eight.vercel.app/recipes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newRecipe),

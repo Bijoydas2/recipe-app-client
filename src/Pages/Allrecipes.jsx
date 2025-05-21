@@ -6,7 +6,7 @@ const Allrecipes = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/recipes')
+    fetch('https://recipe-book-app-server-eight.vercel.app/recipes')
       .then(res => res.json())
       .then(data => {
         setRecipes(data);
