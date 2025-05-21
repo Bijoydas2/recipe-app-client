@@ -1,6 +1,7 @@
 // src/pages/Home.jsx
 import React from "react";
 import RecipeSlider from "../components/RecipeSlider";
+import TopRecipes from "../components/TopRecipes";
 
 const Home = () => {
   return (
@@ -11,8 +12,11 @@ const Home = () => {
       </section>
 
       <RecipeSlider />
-
+      <TopRecipes/>
+      
+       
       {/* You can add more sections below */}
+      
     </div>
   );
 };
