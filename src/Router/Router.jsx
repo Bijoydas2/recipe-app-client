@@ -12,7 +12,6 @@ import PrivateRoute from '../Provider/PrivateRoute';
 import Allrecipes from '../Pages/Allrecipes';
 import Addrecipes from '../Pages/Addrecipes';
 import Myrecipes from '../Pages/Myrecipes';
-import Loading from '../Pages/Loading';
 import RecipeDetails from '../Pages/RecipeDetails';
 
 
@@ -43,7 +42,8 @@ export const router = createBrowserRouter([
     
         },
         {
-          path:'/recipe-details/:id',
+          path:'/recipes/:id',
+          loader:({params})=>fetch(`https://recipe-book-app-server-eight.vercel.app/recipes/${params.id}`),
           element:<PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>
         }
 

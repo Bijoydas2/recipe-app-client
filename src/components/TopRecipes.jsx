@@ -44,7 +44,7 @@ const TopRecipes = () => {
               </p>
 
               <Link
-                to={`/recipe-details/${recipe._id}`}
+                to={`/recipes/${recipe._id}`}
                 className="mt-auto flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition-colors duration-200"
               >
                 View Details <FiArrowRight />

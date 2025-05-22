@@ -56,7 +56,20 @@ const AddRecipe = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        Swal.fire('Recipe added successfully.');
+        Swal.fire({
+  icon: 'success',
+  title: 'Success!',
+  text: 'Recipe added successfully.',
+  showConfirmButton: false,
+  timer: 2000,
+  timerProgressBar: true,
+  background: '#f0f9ff',
+  color: '#0c5460',
+  customClass: {
+    popup: 'shadow-lg rounded-lg',
+  },
+   });
+
         setFormData({
           image: '',
           title: '',
