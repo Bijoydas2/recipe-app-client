@@ -55,7 +55,7 @@ const Navbar = () => {
               {user && 
 
                 <li>
-                  <button onClick={handleLogout} className="text-red-500 hover:underline">
+                  <button onClick={handleLogout} className="bg-red-500 text-white hover:underline">
                     Logout
                   </button>
                 </li>
@@ -101,7 +101,7 @@ const Navbar = () => {
                 <p className="font-semibold mb-2">{user.displayName}</p>
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left text-red-500 hover:underline"
+                  className="w-full p-2 rounded text-left text-white bg-red-500 hover:underline"
                 >
                   Logout
                 </button>

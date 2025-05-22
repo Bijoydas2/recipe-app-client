@@ -40,11 +40,12 @@ const AddRecipe = () => {
     const form = e.target;
     const formDataObj = Object.fromEntries(new FormData(form));
     const categories = new FormData(form).getAll('categories');
-
+     const userEmail = localStorage.getItem('userEmail');
     const newRecipe = {
       ...formDataObj,
       categories,
       likes: 0,
+      userEmail
     };
 
     console.log('Submitted Data:', newRecipe);

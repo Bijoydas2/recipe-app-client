@@ -36,7 +36,7 @@ const Allrecipes = () => {
             />
             <div className="p-4 flex flex-col flex-grow">
               <h2 className="text-xl font-semibold mb-2">{recipe.title}</h2>
-              <p className="text-gray-600 text-sm mb-1"><strong>Cuisine:</strong> {recipe.cuisineType}</p>
+              <p className="text-gray-600 text-sm mb-1"><strong>Cuisine:</strong> {recipe.cuisine}</p>
               <p className="text-gray-600 text-sm mb-1"><strong>Prep Time:</strong> {recipe.prepTime} mins</p>
              
 

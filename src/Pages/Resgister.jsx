@@ -13,7 +13,7 @@ const Resgister = () => {
         const form = e.target;
         const formData = new FormData(form);
          const { email, password, photo,name} = Object.fromEntries(formData);
-        // Password Validation
+        
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
     if (!passwordRegex.test(password)) {
