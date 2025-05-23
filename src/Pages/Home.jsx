@@ -5,11 +5,17 @@ import TopRecipes from "../components/TopRecipes";
 import HeroTypewriter from "../components/HeroTypewriter";
 
 import RecipeViewSection from "../components/RecipeViewSection";
+import { Helmet } from "react-helmet-async";
 
 
 const Home = () => {
+  
   return (
     <div>
+       <Helmet>
+        <title>Top Recipe </title>
+       
+      </Helmet>
       <HeroTypewriter/>
  
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import { FaHeart } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 const RecipeDetails = () => {
   const loadedRecipe = useLoaderData();
@@ -43,7 +44,10 @@ const RecipeDetails = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10 space-y-8">
-      
+      <Helmet>
+              <title>Recipe Details</title>
+             
+            </Helmet>
    
       <p className="text-lg font-semibold text-amber-700 mb-4">
         {recipe.likes || 0} {recipe.likes === 1 ? "person is" : "people are"} interested in this recipe

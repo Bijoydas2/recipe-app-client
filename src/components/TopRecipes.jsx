@@ -57,7 +57,7 @@ const TopRecipes = () => {
       <div className="text-center mt-12">
         <Link
           to="/all-recipes"
-          className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-900 text-white py-3 px-8 rounded-xl font-semibold text-lg transition-colors duration-300"
+          className="inline-flex items-center gap-2 bg-blue-400 hover:bg-amber-500 text-white py-3 px-8 rounded-xl font-semibold text-lg transition-colors duration-300"
         >
           See All Recipes <FiArrowRight />
         </Link>

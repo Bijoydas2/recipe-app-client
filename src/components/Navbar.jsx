@@ -1,11 +1,15 @@
-import React, { use,  } from 'react';
+import React, { use, useContext,  } from 'react';
 import { IoFastFood } from 'react-icons/io5';
 import { HiMenu } from 'react-icons/hi';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import { FiMoon, FiSun } from 'react-icons/fi';
+import { ThemeContext } from '../Provider/ThemeContext';
 
 const Navbar = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   const { user, logOut}= use(AuthContext);
   const handleLogout = () => {
     
@@ -90,6 +94,13 @@ const Navbar = () => {
 
         
         <div className="flex items-center space-x-4">
+          <button
+    onClick={toggleTheme}
+    className="text-2xl p-2 hover:bg-gray-200 rounded-full  transition"
+    aria-label="Toggle Theme"
+   >
+    {theme === 'light' ? <FiMoon className='text-slate-400' /> : <FiSun className='text-amber-500'/>}
+   </button>
           {user ? (
             <div className="relative group">
               <img

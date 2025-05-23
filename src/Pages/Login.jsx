@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const { logIn, logInGoogle } = useContext(AuthContext);
@@ -19,7 +20,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
 
-        // ইউজারের ইমেইল লোকালস্টোরেজে সেভ করো
+      
         localStorage.setItem('userEmail', user.email);
 
         toast.success('Log In Successfully');
@@ -37,7 +38,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
 
-        // ইউজারের ইমেইল লোকালস্টোরেজে সেভ করো
+       
         localStorage.setItem('userEmail', user.email);
 
         toast.success('Log In Successfully');
@@ -52,6 +53,11 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <Helmet>
+              
+         <title>User Login</title>
+                  
+       </Helmet>
       <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <form onSubmit={handleLogin} className="space-y-4">

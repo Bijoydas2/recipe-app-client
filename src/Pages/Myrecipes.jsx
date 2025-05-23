@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import UpdateModal from "../components/UpdateModal";
 import RecipeCard from "../components/RecipeCard";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const MyRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -63,6 +64,10 @@ const MyRecipes = () => {
 
   return (
     <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <Helmet>
+              <title>My Recipe</title>
+             
+            </Helmet>
       {Array.isArray(recipes) &&
         recipes.map((recipe) => (
           <RecipeCard

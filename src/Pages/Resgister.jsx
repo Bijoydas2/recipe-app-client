@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const Resgister = () => {
     const {createUser,setUser, updateUser,logInGoogle}= use(AuthContext)
@@ -66,6 +67,10 @@ const Resgister = () => {
     return (
         
              <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <Helmet>
+               <title>User Register</title>
+              
+      </Helmet>
       <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
 

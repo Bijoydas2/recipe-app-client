@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router';
 
 const Allrecipes = () => {
@@ -24,6 +25,10 @@ const Allrecipes = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
+      <Helmet>
+              <title>All Recipe Book</title>
+             
+            </Helmet>
       <h1 className="text-4xl font-bold mb-8 text-center">All Recipes</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

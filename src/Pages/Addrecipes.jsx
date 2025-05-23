@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+
 import Swal from 'sweetalert2';
 
 const AddRecipe = () => {
@@ -89,6 +91,10 @@ const AddRecipe = () => {
 
   return (
     <div className="max-w-3xl mx-auto mt-8 p-6 bg-white shadow-2xl rounded-2xl">
+       <Helmet>
+               <title>Add Recipe</title>
+              
+      </Helmet>
       <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Add a New Recipe</h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
