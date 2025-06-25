@@ -1,46 +1,31 @@
-🍽️ TasteNest - Discover & Share Delicious Recipes
+# 🍽️ Recipe App
 
-Welcome to TasteNest, a recipe-sharing web application where users can explore popular dishes, add their own creations, and manage them with ease. Featuring a sleek UI, real-time feedback, and secure authentication, TasteNest is the perfect platform for home chefs and food lovers alike!
+A full-featured MERN Stack web application where users can browse recipes, like them, and manage their own.
 
-Live Link: https://recipe-book-app-auth.web.app/all-recipes
+## 🖼️ Screenshot
 
-github:
-      Client-Site-Link:https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-bijoy133
-      Server-Site-Link:https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-bijoy133
+![Recipe App Screenshot](https://i.ibb.co/60T7ndWs/Capture.png)
 
-Features:
+## 🚀 Live Demo
 
-Top Recipes on Homepage
-Discover the most liked recipes (fetched from MongoDB) right when you land.
+🔗 [Live Site](https://recipe-book-app-auth.web.app/add-recipe)
 
-My Recipes Dashboard
-Logged-in users can view, edit, and delete their own recipes with a modal-based interface.
+## 🔧 Tech Stack
 
-Add New Recipes
-Submit detailed recipes with title, image, ingredients, instructions, categories, and more.
+- **Frontend**: React, React Router, Tailwind CSS, DaisyUI
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB + Mongoose
+- **Auth**: Firebase Authentication
+- **Deployment**: Netlify (Frontend), Render (Backend)
 
-Secure Authentication
-Firebase Authentication powers login and registration.
+## ⭐ Features
 
-Modern Responsive UI
-Built with React and Tailwind CSS for a seamless experience across all devices.
+- View and search recipes
+- Like recipes and view most-liked items
+- Add, update, delete your own recipes (protected routes)
+- Firebase login/signup
+- Responsive UI
 
-Deployment
-Frontend hosted on Firebase Hosting
-Backend hosted on Vercel using Express and MongoDB
+## 📦 Dependencies
 
-Tech Stack:
-
-Frontend: React, React Router, Tailwind CSS,Daisyui
-Backend: Express.js
-Database: MongoDB 
-Authentication: Firebase Authentication
-Deployment: Firebase Hosting (Frontend), Vercel (Backend)
-
-Use Package:
-  1. React-Icon
-  2. react-helmet-async
-  3. React-simple-typewriter
-  4. Lottie React 
-  5. Swiper slider
-  6. sweetAlert
+- axios
