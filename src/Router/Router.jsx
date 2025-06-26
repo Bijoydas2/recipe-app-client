@@ -31,16 +31,8 @@ export const router = createBrowserRouter([
           Component:Allrecipes
     
         },
-        {
-          path:'/add-recipe',
-          element:<PrivateRoute><Addrecipes></Addrecipes></PrivateRoute>
-    
-        },
-        {
-          path:'/my-recipes',
-          element:<PrivateRoute><Myrecipes></Myrecipes></PrivateRoute>
-    
-        },
+        
+       
         {
           path:'/recipes/:id',
           loader:({params})=>fetch(`https://recipe-book-app-server-eight.vercel.app/recipes/${params.id}`),
@@ -67,5 +59,27 @@ export const router = createBrowserRouter([
           Component:Resgister
         },
       ]
-    }
+    },
+    {
+    path: "/dashboard",
+   element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+   children: [
+    {
+       index: true,
+       element: <Overview /> 
+     },          
+      {
+        path:'/add-recipe',
+        element:<Addrecipes></Addrecipes>
+    
+      },
+
+      {
+        path:'/my-recipes',
+        element:<Myrecipes></Myrecipes>
+    
+        },
+  ]
+}
+
 ]);

@@ -1,4 +1,4 @@
-import React, { use, useContext,  } from 'react';
+import React, { useContext } from 'react';
 import { IoFastFood } from 'react-icons/io5';
 import { HiMenu } from 'react-icons/hi';
 import { Link, NavLink } from 'react-router';
@@ -6,28 +6,28 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { ThemeContext } from '../Provider/ThemeContext';
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { user, logOut } = useContext(AuthContext);
 
-  const { user, logOut}= use(AuthContext);
   const handleLogout = () => {
-    
-    
     logOut()
-    .then(() => {
-     toast.success("Log Out successfully!");
-   }).catch((error) => {
-    console.log(error)
-   });
+      .then(() => {
+        toast.success("Log Out successfully!");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        
+    <nav className="bg-amber-100 shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4  flex items-center justify-between">
+        {/* Logo and Mobile Menu */}
         <div className="flex items-center gap-4">
-         
+          {/* Mobile Dropdown */}
           <div className="dropdown lg:hidden">
             <button tabIndex={0} className="btn btn-ghost text-gray-700 font-medium p-0">
               <HiMenu className="h-6 w-6" />
@@ -46,37 +46,50 @@ const Navbar = () => {
                   All Recipes
                 </NavLink>
               </li>
+              {user && (
+                <>
+                  <li>
+                    <NavLink to="/add-recipe" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+                      Add Recipe
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+                      My Recipes
+                    </NavLink>
+                  </li>
+                </>
+              )}
               <li>
-                <NavLink to="/add-recipe" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
-                  Add Recipe
+                <NavLink to="/about-us" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+                  About Us
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
-                  My Recipes
+                <NavLink to="/contact" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+                  Contact
                 </NavLink>
               </li>
-              {user && 
-
+              {user && (
                 <li>
                   <button onClick={handleLogout} className="bg-red-500 text-white hover:underline">
                     Logout
                   </button>
                 </li>
-                }
+              )}
             </ul>
           </div>
 
-         
+          {/* Logo */}
           <div className="text-xl lg:text-2xl font-bold text-amber-500">
-            <h1 className="flex items-center gap-2">
-              <IoFastFood />
+            <h1 className="flex items-center ">
+              <img src={logo} className='w-16' alt="" />
               Recipe Book
             </h1>
           </div>
         </div>
 
-     
+        {/* Desktop Menu */}
         <div className="hidden lg:flex space-x-6 text-gray-700 font-medium">
           <NavLink to="/" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
             Home
@@ -84,23 +97,33 @@ const Navbar = () => {
           <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
             All Recipes
           </NavLink>
-          <NavLink to="/add-recipe" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
-            Add Recipe
+          {user && (
+            <>
+              <NavLink to="/add-recipe" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+                Add Recipe
+              </NavLink>
+              <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+                My Recipes
+              </NavLink>
+            </>
+          )}
+          <NavLink to="/about-us" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+            About Us
           </NavLink>
-          <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
-            My Recipes
+          <NavLink to="/contact" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+            Contact
           </NavLink>
         </div>
 
-        
+        {/* Theme + Auth Buttons */}
         <div className="flex items-center space-x-4">
           <button
-    onClick={toggleTheme}
-    className="text-2xl p-2 hover:bg-gray-200 rounded-full  transition"
-    aria-label="Toggle Theme"
-   >
-    {theme === 'light' ? <FiMoon className='text-slate-400' /> : <FiSun className='text-amber-500'/>}
-   </button>
+            onClick={toggleTheme}
+            className="text-2xl p-2 hover:bg-gray-200 rounded-full transition"
+            aria-label="Toggle Theme"
+          >
+            {theme === 'light' ? <FiMoon className="text-slate-400" /> : <FiSun className="text-amber-500" />}
+          </button>
           {user ? (
             <div className="relative group">
               <img
@@ -126,12 +149,7 @@ const Navbar = () => {
               >
                 Login
               </Link>
-              <Link
-                to="/auth/register"
-                className="text-sm px-4 py-2 border border-amber-400 text-amber-500 hover:bg-amber-100 rounded"
-              >
-                Register
-              </Link>
+              
             </>
           )}
         </div>

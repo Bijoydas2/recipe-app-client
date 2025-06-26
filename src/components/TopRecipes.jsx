@@ -14,12 +14,12 @@ const TopRecipes = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      <h2 className="text-4xl font-bold text-center mb-10 text-gray-800 flex items-center justify-center gap-3">
+    <div className="max-w-7xl mx-auto px-4 mt-10">
+      <h2 className="text-4xl text-amber-500  font-bold text-center   flex items-center justify-center gap-3">
      Top Recipes <FaHotjar className="text-amber-500" />
    </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
         {recipes.map(recipe => (
           <div
             key={recipe._id}
@@ -45,9 +45,9 @@ const TopRecipes = () => {
 
               <Link
                 to={`/recipes/${recipe._id}`}
-                className="mt-auto flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-semibold transition-colors duration-200"
+                className="mt-auto flex items-center justify-center gap-2px-6 py-2 font-semibold text-white bg-amber-500 rounded-md transition-all duration-300 ease-in-out hover:bg-amber-600 hover:shadow-md hover:scale-105"
               >
-                View Details <FiArrowRight />
+                View  <FiArrowRight />
               </Link>
             </div>
           </div>
@@ -57,7 +57,7 @@ const TopRecipes = () => {
       <div className="text-center mt-12">
         <Link
           to="/all-recipes"
-          className="inline-flex items-center gap-2 bg-blue-400 hover:bg-amber-500 text-white py-3 px-8 rounded-xl font-semibold text-lg transition-colors duration-300"
+          className="inline-flex items-center gap-2 px-6 py-2 font-semibold text-white bg-amber-500 rounded-md transition-all duration-300 ease-in-out hover:bg-amber-600 hover:shadow-md hover:scale-105"
         >
           See All Recipes <FiArrowRight />
         </Link>

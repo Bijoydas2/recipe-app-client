@@ -2,10 +2,13 @@
 import React from "react";
 import RecipeSlider from "../components/RecipeSlider";
 import TopRecipes from "../components/TopRecipes";
-import HeroTypewriter from "../components/HeroTypewriter";
-
 import RecipeViewSection from "../components/RecipeViewSection";
 import { Helmet } from "react-helmet-async";
+import CategorySection from "../components/CategorySection";
+import BlogSection from "../components/BlogSection";
+
+import Testimonials from "../components/Testimonial";
+import FeaturedChefs from "../components/FeaturedChefs";
 
 
 const Home = () => {
@@ -16,13 +19,14 @@ const Home = () => {
         <title>Top Recipe </title>
        
       </Helmet>
-      <HeroTypewriter/>
- 
-
-      <RecipeSlider />
-      
-      <TopRecipes/>
-      <RecipeViewSection/>
+        <RecipeSlider />
+        <TopRecipes />
+       
+        <CategorySection />
+        <BlogSection />
+        <Testimonials/>
+         <FeaturedChefs/>
+         <RecipeViewSection />
       
       
        

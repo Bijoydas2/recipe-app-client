@@ -3,9 +3,10 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
+import SocailLogin from '../components/SocailLogin';
 
 const Resgister = () => {
-    const {createUser,setUser, updateUser,logInGoogle}= use(AuthContext)
+    const {createUser,setUser, updateUser,}= use(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
      const [error, setError] = useState('');
@@ -42,44 +43,24 @@ const Resgister = () => {
         const errorMessage = error.message;
         toast.warn(errorCode,errorMessage)
     })
-    
-     
-
     }
-    const handleGoogleLogin =()=>{
-             logInGoogle()
-             .then(result=>{
-            const user = result.user;
-    
-             toast.success("Log In Succesfully")
-             navigate(`${location.state? location.state: "/"}`)
-    
-           })
-          .catch(error=>{
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            toast.warn(errorCode,errorMessage)
-          })
-        }
-
-
-
+  
     return (
         
-             <div className="min-h-screen flex items-center justify-center bg-gray-100">
+             <div className="min-h-screen flex items-center justify-center ">
         <Helmet>
                <title>User Register</title>
               
       </Helmet>
       <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+        <h2 className="text-4xl text-amber-500 font-bold mb-6 text-center">Register</h2>
 
         <form onSubmit={handleRegister} className="space-y-4">
           <input
             name='name'
             type="text"
             placeholder="Full Name"
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded text-gray-600"
            
             
             required
@@ -88,7 +69,7 @@ const Resgister = () => {
             name='photo'
             type="text"
             placeholder="Photo URL"
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded text-gray-600"
            
             
             required
@@ -97,7 +78,7 @@ const Resgister = () => {
             name='email'
             type="email"
             placeholder="Email"
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded text-gray-600"
           
          
             required
@@ -107,7 +88,7 @@ const Resgister = () => {
             name='password'
             type="password"
             placeholder="Password"
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded text-gray-600"
            
             
             required
@@ -118,13 +99,13 @@ const Resgister = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+            className="w-full bg-amber-500 text-white p-2 rounded hover:bg-amber-700"
           >
             Register
           </button>
         </form>
 
-        <div className="mt-4 text-center">
+        <div className="mt-4 text-center text-gray-600">
           Already have an account?{' '}
           <Link to="/auth/login" className="text-blue-500 hover:underline">
             Login
@@ -132,12 +113,7 @@ const Resgister = () => {
         </div>
 
         <div className="mt-6">
-          <button
-            onClick={handleGoogleLogin}
-            className="w-full bg-amber-500 text-white p-2 rounded hover:bg-red-600"
-          >
-            Continue with Google
-          </button>
+          <SocailLogin/>
         </div>
       </div>
     </div>

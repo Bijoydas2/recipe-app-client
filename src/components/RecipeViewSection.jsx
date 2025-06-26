@@ -12,7 +12,7 @@ const RecipeViewSection = () => {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center bg-white py-14 px-6 text-center shadow-lg rounded-xl w-[95%] mx-auto my-12">
+    <section className="flex flex-col items-center justify-center bg-amber-100 py-10 px-6 text-center shadow-lg rounded-xl w-[95%] mx-auto my-12">
       {animationData ? (
         <Lottie
           animationData={animationData}
