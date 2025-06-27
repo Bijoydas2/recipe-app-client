@@ -13,6 +13,11 @@ import Allrecipes from '../Pages/Allrecipes';
 import Addrecipes from '../Pages/Addrecipes';
 import Myrecipes from '../Pages/Myrecipes';
 import RecipeDetails from '../Pages/RecipeDetails';
+import DashboardLayout from '../MainLayout.jsx/DasboardLayout';
+import Overview from '../components/Overview';
+import AllRecipes from '../Pages/Dashboard/AllRecipe';
+import About from '../Pages/About';
+import Contact from '../Pages/Contact';
 
 
 
@@ -29,6 +34,17 @@ export const router = createBrowserRouter([
         {
           path:'/all-recipes',
           Component:Allrecipes
+    
+        },
+        
+        {
+          path:'/about',
+          Component:About
+    
+        },
+        {
+          path:'/contact',
+          Component:Contact
     
         },
         
@@ -60,26 +76,28 @@ export const router = createBrowserRouter([
         },
       ]
     },
+   {
+  path: "/dashboard",
+  element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+  children: [
     {
-    path: "/dashboard",
-   element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
-   children: [
+      index: true,
+      element: <Overview />
+    },
     {
-       index: true,
-       element: <Overview /> 
-     },          
-      {
-        path:'/add-recipe',
-        element:<Addrecipes></Addrecipes>
-    
-      },
-
-      {
-        path:'/my-recipes',
-        element:<Myrecipes></Myrecipes>
-    
-        },
+      path:'/dashboard/all-recipe',
+      element:<AllRecipes/>
+    },
+    {
+      path: '/dashboard/add-recipe',
+      element: <Addrecipes />
+    },
+    {
+      path: '/dashboard/my-recipes',
+      element: <Myrecipes />
+    }
   ]
 }
+
 
 ]);

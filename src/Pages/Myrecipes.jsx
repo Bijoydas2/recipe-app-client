@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import UpdateModal from "../components/UpdateModal";
-import RecipeCard from "../components/RecipeCard";
+
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import RecipesTable from "../components/RecipesTable";
 
 const MyRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -27,16 +28,13 @@ const MyRecipes = () => {
       .then((res) => {
         if (!res.ok) throw new Error("Delete failed");
         setRecipes((prev) => prev.filter((recipe) => recipe._id !== id));
-        toast.success("Delete Succesfully")
+        toast.success("Deleted Successfully");
       })
-      .catch((err) => {
-        console.error("Failed to delete:", err);
-        alert("Failed to delete recipe");
-      });
+      .catch(() => toast.error("Failed to delete recipe"));
   };
 
   const handleUpdate = (updatedRecipe) => {
-      const { _id, ...updateData } = updatedRecipe;
+    const { _id, ...updateData } = updatedRecipe;
 
     fetch(`https://recipe-book-app-server-eight.vercel.app/api/recipes/${_id}`, {
       method: "PUT",
@@ -53,33 +51,27 @@ const MyRecipes = () => {
             recipe._id === updatedRecipe._id ? updatedRecipe : recipe
           )
         );
-        toast.success('Updated Succesful')
+        toast.success("Updated Successfully");
         setShowModal(false);
       })
-      .catch((err) => {
-        console.error("Failed to update:", err);
-        alert("Failed to update recipe");
-      });
+      .catch(() => toast.error("Failed to update recipe"));
   };
 
   return (
-    <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="p-4">
       <Helmet>
-              <title>My Recipe</title>
-             
-            </Helmet>
-      {Array.isArray(recipes) &&
-        recipes.map((recipe) => (
-          <RecipeCard
-            key={recipe._id}
-            recipe={recipe}
-            onDelete={handleDelete}
-            onEdit={() => {
-              setSelectedRecipe(recipe);
-              setShowModal(true);
-            }}
-          />
-        ))}
+        <title>My Recipes</title>
+      </Helmet>
+
+      <RecipesTable
+        recipes={recipes}
+        onDelete={handleDelete}
+        onEdit={(recipe) => {
+          setSelectedRecipe(recipe);
+          setShowModal(true);
+        }}
+      />
+
       {showModal && selectedRecipe && (
         <UpdateModal
           recipe={selectedRecipe}

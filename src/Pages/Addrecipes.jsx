@@ -95,7 +95,7 @@ const AddRecipe = () => {
                <title>Add Recipe</title>
               
       </Helmet>
-      <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Add a New Recipe</h2>
+      <h2 className="text-4xl font-bold text-center mb-6 text-amber-500">Add a New Recipe</h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
           <label className="block font-medium text-gray-700">Image URL</label>

@@ -46,20 +46,12 @@ const Navbar = () => {
                   All Recipes
                 </NavLink>
               </li>
-              {user && (
-                <>
-                  <li>
-                    <NavLink to="/add-recipe" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
-                      Add Recipe
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
-                      My Recipes
-                    </NavLink>
-                  </li>
-                </>
-              )}
+              <li>
+                <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+                  Dashboard
+                </NavLink>
+              </li>
+               
               <li>
                 <NavLink to="/about-us" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
                   About Us
@@ -99,15 +91,13 @@ const Navbar = () => {
           </NavLink>
           {user && (
             <>
-              <NavLink to="/add-recipe" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
-                Add Recipe
+              <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+               Dashboard
               </NavLink>
-              <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
-                My Recipes
-              </NavLink>
+              
             </>
           )}
-          <NavLink to="/about-us" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
+          <NavLink to="/about" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
             About Us
           </NavLink>
           <NavLink to="/contact" className={({ isActive }) => isActive ? 'text-amber-500' : 'hover:text-amber-400'}>
