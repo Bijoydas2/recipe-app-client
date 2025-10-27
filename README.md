@@ -6,7 +6,9 @@ A full-featured **MERN Stack Recipe App** where users can browse recipes, like t
 
 ## 🖼️ Screenshot
 
-![Recipe App Screenshot](https://i.ibb.co/60T7ndWs/Capture.png)
+| Home | Top Recipi |  All Recipi |
+|------------|--------------|-------------|
+| ![Home Page](https://i.ibb.co/S4DnHb1v/img11.png) | ![Top Recipi](https://i.ibb.co/LzzP6J1N/img2.png) | ![ All Recipi](https://i.ibb.co/dJzZcthq/img3.png) |
 
 ---
 
